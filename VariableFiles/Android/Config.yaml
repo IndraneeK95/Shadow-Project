@@ -1,0 +1,46 @@
+# Device Configuration
+TEST_DEVICE: 'E1B68000070'
+TEST_DEVICE_PHONENUMBER: '7700057362'
+#PARTNER_DEVICE: 'E1AB6002499'
+#PARTNER_DEVICE_PHONENUMBER: '9619583287'
+#PARTNER_DEVICE_2_PHONENUMBER: '70215 09824'     #Need to add a space in between first 5 and last 5 digits for TCs
+#PARTNER_DEVICE_3_PHONENUMBER: '9920961429'
+BROWSER_TYPE: 'CHROME'
+
+
+REBOOT_TIMEOUT: '90'
+
+
+#App Package Names
+## -------------------------------
+BROWSER_PACKAGE: 'com.android.chrome'
+CONTACTS_PACKAGE: 'com.google.android.contacts'
+MESSAGES_PACKAGE: 'com.google.android.apps.messaging'
+SETTINGS_PACKAGE: 'com.android.settings'
+FILES_PACKAGE: 'com.android.documentsui'
+CAMERA_PACKAGE: 'org.codeaurora.snapcam'
+MUSIC_PACKAGE: 'com.google.android.apps.youtube.music'
+PHONE_PACKAGE: 'com.google.android.dialer'
+YOUTUBE_PACKAGE: 'com.google.android.youtube'
+GMAIL_PACKAGE: 'com.google.android.gm'
+PHOTOS_PACKAGE: 'com.google.android.apps.photos'
+PLAYSTORE_PACKAGE: 'com.android.vending'
+MAPS_PACKAGE: 'com.google.android.apps.maps'
+CALENDAR_PACKAGE: 'com.google.android.calendar'
+SOUNDRECORDER_PACKAGE: 'com.android.soundrecorder'
+
+
+## Applications
+## -------------------------------
+SETTINGS: 'Settings'
+CAMERA: 'Camera'
+MESSAGES: 'Messaging'
+#MESSAGES: 'Messages'
+BROWSER: 'Chrome'
+PHONE: 'Phone'
+YOUTUBE: 'YouTube'
+CONTACTS: 'Contacts'
+PHOTOS: 'Photos'
+GMAIL: 'Gmail'
+CALENDER: 'Calendar'
+FILES: 'Files'
