@@ -25,9 +25,19 @@ ${browserUrl11}     https://speed.hetzner.de/
 &{url10Id}  textContains=No IPv6 address detected
 &{url11Id}  textContains=Your IPv4 address on the public Internet appears to be
 ${file_size}        100
+${upload_file_size}  9
 &{download_notification}     textContains=Download complete
 &{mobileDataOff}  text=Off  descriptionContains=Mobile data
 &{mobileDataOn}  text=On  descriptionContains=Mobile data
+&{whatsapp-1}         resourceId=com.whatsapp:id/contact_row_container
+&{whatsapp-2}          className=android.widget.ImageButton
+&{whatsapp-3}          resourceId=android:id/button1
+&{voice-1}             textContains=Phone
+&{voice-2}             resourceId=com.android.contacts:id/primary_action_view
+&{upload_msg}          textContains=VID-20210701-WA0001.mp4
+&{upload_1}            resourceId=com.google.android.apps.docs:id/branded_fab
+&{upload_2}            textContains=Upload
+&{upload_3}            textContains=9.24MB
 
 
 *** Keywords ***
@@ -66,6 +76,17 @@ Final Speed
       Log To Console    ${speed}
 
 
+Final Speed Upload
+     [Arguments]    ${time1}
+      ${time2}      Get Cur Time
+      Log To Console    ${time2}
+      ${rel_time}   Get Rel Time    ${time1}    ${time2}
+      ${speed}      Get Speed        ${upload_file_size}      ${rel_time}
+      Log To Console    Upload speed is
+      Log To Console    ${speed}
+
+
+
 Send message
        Execute Adb Shell Command  monkey -p com.simplemobiletools.smsmessenger -c android.intent.category.LAUNCHER 1
        Click   resourceId=com.simplemobiletools.smsmessenger:id/conversations_fab
@@ -100,4 +121,30 @@ Verify Option State
 Enable Mobile Data
       Swipe Left In Quick Panel
        BuiltIn.Sleep  2
+
+
+Open Whatsapp
+         Execute Adb Shell Command  monkey -p com.whatsapp -c android.intent.category.LAUNCHER 1
+
+
+Make data call
+         Click      &{whatsapp-1}
+         Click      &{whatsapp-2}
+
+
+
+Make voice call
+         Click      &{voice-1}
+         Click      &{voice-2}
+
+
+Open Google drive
+         Execute Adb Shell Command  monkey -p com.google.android.apps.docs -c android.intent.category.LAUNCHER 1
+
+Open file
+         Click      &{upload_1}
+         Click      &{upload_2}
+
+upload file
+             Click       &{upload_3}
 
