@@ -5,29 +5,31 @@ Resource     ../Res/Basic_setup.resource
 
 Documentation   Test_001: General Script for verifying functionality
 
-*** Comments ***
+*** Test Cases ***
 
-Sending a text message
+TC1
+
      Send message
 
 
-4G LTE Attach and Communication IPV6
+TC2
+#4G LTE Attach and communication IPV6
         Launch browser
         Set Text  ${browserUrl10}    &{browserUrlSearch}
         Press Enter
         BuiltIn.Sleep  5
         Verify Particular Url Is Opened IPV6  &{url10Id}
 
-*** Comments *** *********
- 4G LTE Attach and Communication IPV4
+TC3
+#4G LTE Attach and Communication IPV4
         Launch browser
         Set Text  ${browserUrl10}    &{browserUrlSearch}
         Press Enter
         BuiltIn.Sleep  5
         Verify Particular Url Is Opened IPV4  &{url11Id}
 
-*** Test Cases ***
-Calculate download speed via HTTP protocol in 4G network
+TC4
+#Calculate download speed via HTTP protocol in 4G network
 
         Launch browser
         Set Text       https://speed.hetzner.de/    &{browserUrlSearch}
@@ -47,8 +49,47 @@ Calculate download speed via HTTP protocol in 4G network
         Run Keyword If    ${Result}      Final Speed    ${time1}
         Final Speed    ${time1}
 
-*** Comments ***
-Sending a message when data is on
+TC5
+#Sending a message when data is on
 
          Enable Mobile Data
          Send message
+
+
+TC6
+#Simultaneous data and voice call
+
+        Open Whatsapp
+        Make data call
+        Press Home
+        Make voice call
+
+TC7
+
+        #Open Notification
+        Swipe Left
+
+
+TC8
+#Calculate upload speed
+
+         Open Google drive
+         Open file
+         ${time1}    Get Cur Time
+         upload file
+         BuiltIn.Sleep  1
+         FOR    ${i}    IN RANGE    10000
+
+                  ${Result}  Wait For Exists   &{upload_msg}
+        Exit For Loop If    ${Result}==True
+
+        END
+
+        Log To Console    ${Result}
+        Run Keyword If    ${Result}      Final Speed Upload   ${time1}
+        Final Speed Upload   ${time1}
+
+TC9
+
+        Enable Mobile Data
+        Make voice call
