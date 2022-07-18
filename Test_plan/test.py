@@ -58,9 +58,14 @@ def second_page():
     window.configure(bg='#fff')
     window.resizable(False, False)
     window.img = PhotoImage(file="sign.png", master=window)
+<<<<<<< HEAD
     Label(window, image=window.img, border=0, bg='white').place(x=50, y=60)
     window.img2 = PhotoImage(file="test_l.png", master=window)
     Label(window, image=window.img2, border=0, bg='white').place(x=50, y=460)
+=======
+    Label(window, image=window.img, border=0, bg='white').place(x=50, y=80)
+
+>>>>>>> origin/master
     frame = Frame(window, width=350, height=390, bg='#fff')
     frame.place(x=550, y=70)
 
@@ -124,9 +129,14 @@ def field_page():
     window.configure(bg='#fff')
     window.resizable(False, False)
     window.img = PhotoImage(file="sign.png", master=window)
+<<<<<<< HEAD
     Label(window, image=window.img, border=0, bg='white').place(x=50, y=60)
     window.img2 = PhotoImage(file="test_l.png", master=window)
     Label(window, image=window.img2, border=0, bg='white').place(x=50, y=460)
+=======
+    Label(window, image=window.img, border=0, bg='white').place(x=50, y=80)
+
+>>>>>>> origin/master
     frame = Frame(window, width=350, height=390, bg='#fff')
     frame.place(x=480, y=70)
 
@@ -138,11 +148,19 @@ def field_page():
                  font=("Microdoft Yahei UI Light", 11, 'bold'), command=op1)
     bt1.place(x=40, y=90)
 
+<<<<<<< HEAD
     bt2 = Button(frame, text="Check Existing run", bg="#014b88", fg='black', bd='5', height="2", width="25",
                  cursor='hand2', font=("Microdoft Yahei UI Light", 11, 'bold',), command=op2)
     bt2.place(x=40, y=160)
 
     bt3 = Button(frame, text="Back", bg="#014b88", fg='black', bd='5', height="2", width="25",
+=======
+    bt2 = Button(frame, text="Check Existing run", bg="white", fg='black', bd='5', height="2", width="25",
+                 cursor='hand2', font=("Microdoft Yahei UI Light", 11, 'bold',), command=op2)
+    bt2.place(x=40, y=160)
+
+    bt3 = Button(frame, text="Back", bg="white", fg='black', bd='5', height="2", width="25",
+>>>>>>> origin/master
                  cursor='hand2', font=("Microdoft Yahei UI Light", 11, 'bold',), command=op3)
     bt3.place(x=40, y=230)
 
@@ -162,9 +180,14 @@ def create_field():
     window.configure(bg='#fff')
     window.resizable(False, False)
     window.img = PhotoImage(file="sign.png", master=window)
+<<<<<<< HEAD
     Label(window, image=window.img, border=0, bg='white').place(x=50, y=60)
     window.img2 = PhotoImage(file="test_l.png", master=window)
     Label(window, image=window.img2, border=0, bg='white').place(x=50, y=460)
+=======
+    Label(window, image=window.img, border=0, bg='white').place(x=50, y=80)
+
+>>>>>>> origin/master
     frame = Frame(window, width=350, height=390, bg='#fff')
     frame.place(x=480, y=70)
 
@@ -179,7 +202,11 @@ def create_field():
         if user.get() == '':
             user.insert(0, 'Product Version')
 
+<<<<<<< HEAD
     user = Entry(frame, fg='black',width='30', border=0, bg='#57a1f8', font=("Microdoft Yahei UI Light", 11), bd=5, relief='raised')
+=======
+    user = Entry(frame, fg='black',width='25', border=0, bg='#57a1f8', font=("Microdoft Yahei UI Light", 11))
+>>>>>>> origin/master
     user.place(x=40, y=80)
     user.insert(0, 'Product Version')
     user.bind("<FocusIn>", on_enter)
@@ -191,7 +218,11 @@ def create_field():
     def on_leave(e):
         if user.get() == '':
             user.insert(0, 'OS Type')
+<<<<<<< HEAD
     user = Entry(frame, fg='black', width='30', border=0, bg='#57a1f8', font=("Microdoft Yahei UI Light", 11),bd=5, relief='raised')
+=======
+    user = Entry(frame, fg='black', width='25', border=0, bg='#57a1f8', font=("Microdoft Yahei UI Light", 11))
+>>>>>>> origin/master
     user.place(x=40, y=120)
     user.insert(0, 'OS Type')
     user.bind("<FocusIn>", on_enter)
@@ -203,7 +234,11 @@ def create_field():
     def on_leave(e):
         if user.get() == '':
             user.insert(0, 'Android Version')
+<<<<<<< HEAD
     user = Entry(frame, fg='black', border=0, width='30', bg='#57a1f8', font=("Microdoft Yahei UI Light", 11),bd=5, relief='raised')
+=======
+    user = Entry(frame, fg='black', border=0, width='25', bg='#57a1f8', font=("Microdoft Yahei UI Light", 11))
+>>>>>>> origin/master
     user.place(x=40, y=160)
     user.insert(0, 'Android Version')
     user.bind("<FocusIn>", on_enter)
@@ -215,15 +250,26 @@ def create_field():
     def on_leave(e):
         if user.get() == '':
             user.insert(0, 'H/w type')
+<<<<<<< HEAD
     user = Entry(frame, fg='black', border=0, width='30',  bg='#57a1f8', font=("Microdoft Yahei UI Light", 11), bd=5, relief='raised')
+=======
+    user = Entry(frame, fg='black', border=0, width='25',  bg='#57a1f8', font=("Microdoft Yahei UI Light", 11))
+>>>>>>> origin/master
     user.place(x=40, y=200)
     user.insert(0, 'H/W type')
     user.bind("<FocusIn>", on_enter)
     user.bind("<FocusOut>", on_leave)
+<<<<<<< HEAD
     bt1 = Button(frame, text="Test selector", bg="#014b88", fg='black', bd='5', height="2", width="25", cursor='hand2',
                  font=("Microdoft Yahei UI Light", 11, 'bold'), command=op1)
     bt1.place(x=40, y=240)
     bt2 = Button(frame, text="Back", bg="#014b88", fg='black', bd='5', height="2", width="25", cursor='hand2',
+=======
+    bt1 = Button(frame, text="Test selector", bg="white", fg='black', bd='5', height="2", width="25", cursor='hand2',
+                 font=("Microdoft Yahei UI Light", 11, 'bold'), command=op1)
+    bt1.place(x=40, y=240)
+    bt2 = Button(frame, text="Back", bg="white", fg='black', bd='5', height="2", width="25", cursor='hand2',
+>>>>>>> origin/master
                  font=("Microdoft Yahei UI Light", 11, 'bold'), command=op2)
     bt2.place(x=40, y=320)
 
@@ -322,22 +368,33 @@ def test_plan():
         test_select_num()
 
     window = Tk()
+<<<<<<< HEAD
     window.title("Create run field Page")
+=======
+    window.title("Exist Field Page")
+>>>>>>> origin/master
     window.geometry("1000x900+100+50")
     window.configure(bg='#fff')
     window.resizable(False, False)
     window.img = PhotoImage(file="sign.png", master=window)
     Label(window, image=window.img, border=0, bg='white').place(x=50, y=80)
+<<<<<<< HEAD
     window.img2 = PhotoImage(file="test2l.png", master=window)
     Label(window, image=window.img2, border=0, bg='white').place(x=80, y=660)
     window.img3 = PhotoImage(file="test2l.png", master=window)
     Label(window, image=window.img3, border=0, bg='white').place(x=500, y=660)
     frame = Frame(window, width=350, height=550, bg='#fff')
     frame.place(x=480, y=40)
+=======
+
+    frame = Frame(window, width=350, height=550, bg='#fff')
+    frame.place(x=480, y=70)
+>>>>>>> origin/master
 
     heading = Label(frame, text="Field Test Tool", fg="#57a1f8", bg="white",
                     font=("Microdoft Yahei UI Light", 23, 'italic', 'bold'))
     heading.place(x=40, y=5)
+<<<<<<< HEAD
     bt1 = Button(frame, text="Select single test file run", bg="#014b88", fg='black', bd='5', height="2", width="25", cursor='hand2',
                  font=("Microdoft Yahei UI Light", 11, 'bold'), command=select_single_file)
     bt1.place(x=40, y=90)
@@ -350,6 +407,20 @@ def test_plan():
                  cursor='hand2', font=("Microdoft Yahei UI Light", 11, 'bold',), command=test_plan_selector)
     bt3.place(x=40, y=240)
     bt3 = Button(frame, text="Select test by number", bg="#014b88", fg='black', bd='5', height="2", width="25",
+=======
+    bt1 = Button(frame, text="Select single test file run", bg="white", fg='black', bd='5', height="2", width="25", cursor='hand2',
+                 font=("Microdoft Yahei UI Light", 11, 'bold'), command=select_single_file)
+    bt1.place(x=40, y=90)
+
+    bt2 = Button(frame, text="Select multiple file run", bg="white", fg='black', bd='5', height="2", width="25",
+                 cursor='hand2', font=("Microdoft Yahei UI Light", 11, 'bold',), command=select_multiple_file)
+    bt2.place(x=40, y=160)
+
+    bt3 = Button(frame, text="Select test plan folder", bg="white", fg='black', bd='5', height="2", width="25",
+                 cursor='hand2', font=("Microdoft Yahei UI Light", 11, 'bold',), command=test_plan_selector)
+    bt3.place(x=40, y=240)
+    bt3 = Button(frame, text="Select test by number", bg="white", fg='black', bd='5', height="2", width="25",
+>>>>>>> origin/master
                  cursor='hand2', font=("Microdoft Yahei UI Light", 11, 'bold',), command=test_by_num)
     bt3.place(x=40, y=300)
     bt3 = Button(frame, text="Run", bg="#57a1f8", fg='black', bd='5', height="2", width="25",
@@ -379,6 +450,7 @@ def exist_field():
         field_page()
 
     window = Tk()
+<<<<<<< HEAD
     window.title("existing run page")
     window.geometry("1000x800+100+50")
     window.configure(bg='white')
@@ -401,6 +473,29 @@ def exist_field():
    # b3 = Button(frame, width=39, pady=7, text='Reports', bg='#57a1f8', fg='white', border=0).place(x=75, y=250)
     b1 = Button(frame, width=39, pady=2, height=1,  text='Back', bg='#57a1f8', fg='white', border=2, bd=5,
                 relief='raised', command=ret).place(x=75, y=240)
+=======
+    window.title("SignUp")
+    window.geometry("1200x900+100+50")
+    window.configure(bg='#014b88')
+    window.resizable(False, False)
+
+    img = PhotoImage(file="L&T_Technology_Services_logo.v1.png")
+    Label(window, image=img, border=0, bg='#014b88').place(x=10, y=80)
+
+    frame = Frame(window, width=800, height=500, bg='#014b88')
+    frame.place(x=550, y=70)
+
+    heading = Label(frame, text="LTTS Field test tool status", fg="#57a1f8", bg="white", relief='raised',
+                    font=("Microdoft Yahei UI Light", 23, 'bold'))
+    heading.place(x=60, y=5)
+    b1 = Button(frame, width=39, pady=7, text='Completion status', bg='#57a1f8', fg='white', border=2,
+                relief='raised', command=progress).place(x=75,y=70)
+    b1 = Button(frame, width=39, pady=7, text='Status', bg='#57a1f8', fg='white', border=2,
+                relief='raised', command=status_open).place(x=75, y=150)
+   # b3 = Button(frame, width=39, pady=7, text='Reports', bg='#57a1f8', fg='white', border=0).place(x=75, y=250)
+    b1 = Button(frame, width=39, pady=7, text='Back', bg='#57a1f8', fg='white', border=2,
+                relief='raised', command=ret).place(x=75, y=350)
+>>>>>>> origin/master
 
     #########
 
@@ -448,12 +543,17 @@ def devices_check():
 
     window = Tk()
     window.title("Devices Options page")
+<<<<<<< HEAD
     window.geometry("900x900+100+50")
+=======
+    window.geometry("1200x600+100+50")
+>>>>>>> origin/master
     window.configure(bg='#fff')
     window.resizable(False, False)
 
     img = PhotoImage(file="sign.png")
     Label(window, image=img, border=0, bg='#0000CD').place(x=10, y=80)
+<<<<<<< HEAD
     window.img2 = PhotoImage(file='lt4_2.png', master=window)
     Label(window, image=window.img2, border=0, bg='white').place(x=1, y=550)
     frame = Frame(window, width=500, height=500, bg='#fff')
@@ -470,6 +570,19 @@ def devices_check():
     b1 = Button(frame, width=39, height=2, pady=7, text='Back', bg='#57a1f8', fg='white', border=0,
                 bd=5, relief='raised', command=op2).place(
         x=75, y=250)
+=======
+
+    frame = Frame(window, width=500, height=500, bg='#fff')
+    frame.place(x=400, y=70)
+
+    heading = Label(frame, text="LTTS Field test tool", fg="#57a1f8", bg="white", relief='raised',
+                    font=("Microdoft Yahei UI Light", 23, 'bold'))
+    heading.place(x=80, y=5)
+    b1 = Button(frame, width=39, pady=7, text='Check Connected devices', bg='#57a1f8', fg='white', border=0, relief='raised', command=op2).place(
+        x=75, y=70)
+    b2 = Button(frame, width=39, pady=7, text='Assign more devices', bg='#57a1f8', fg='white', border=0).place(x=75, y=150)
+    b2 = Button(frame, width=39, pady=7, text='Back', bg='#57a1f8', fg='white', border=0, command=ret).place(x=75,y=250)
+>>>>>>> origin/master
     window.mainloop()
 
 
@@ -745,8 +858,11 @@ def status():
     window.resizable(False, False)
     window.img = PhotoImage(file="sign.png", master=window)
     Label(window, image=window.img, border=0, bg='white').place(x=50, y=80)
+<<<<<<< HEAD
     window.img2 = PhotoImage(file='lt4_2.png', master=window)
     Label(window, image=window.img2, border=0, bg='white').place(x=5, y=650)
+=======
+>>>>>>> origin/master
 
     frame = Frame(window, width=450, height=550, bg='#fff')
     frame.place(x=480, y=70)
@@ -770,4 +886,8 @@ def status():
     bt3.place(x=40, y=vary)
     window.mainloop()
 
+<<<<<<< HEAD
 login_page()
+=======
+exist_field()
+>>>>>>> origin/master

@@ -1,7 +1,11 @@
 *** Settings ***
 Library      ${EXECDIR}/Lib/Android/localuiautomatorlibrary/Mobile.py
+<<<<<<< HEAD
 Resource     /home/indranee/Mobile application/Res/Basic_setup.resource
 
+=======
+Resource     ../Res/Basic_setup.resource
+>>>>>>> origin/master
 
 
 Documentation   Test_001: General Script for verifying functionality
