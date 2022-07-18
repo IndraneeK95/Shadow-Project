@@ -1,6 +1,6 @@
 *** Settings ***
 
-Resource        ../Resources_and_Keywords/Common_Functionality.resource
+Resource        ../Resources/Common_Functionality.resource
 
 *** Test Cases ***
 
