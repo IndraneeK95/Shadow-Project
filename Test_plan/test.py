@@ -1,6 +1,8 @@
 from tkinter import *
-# from PIL import ImageTk
+from PIL import ImageTk
 from tkinter import messagebox
+import tkinter.messagebox as msg
+import mysql.connector
 import ast
 import tkinter as tkf
 from  tkinter import messagebox
@@ -19,6 +21,261 @@ today = date.today()
 test_run_no = 0
 initial_path='/home/indranee/Mobile application/Test_suite/'
 test_sel_by_num=False
+
+
+
+def first_page():
+    def register():
+        window = Tk()
+        window.title("SignUp")
+        window.geometry("900x750+100+50")
+        window.configure(bg='#fff')
+        window.resizable(False, False)
+        img = PhotoImage(file="register.png", master=window)
+        Label(window, image=img, border=0, bg='white').place(x=70, y=200)
+
+        img1 = ImageTk.PhotoImage(file="LT.jpg", master=window)
+        Label(window, image=img1, border=0, bg='white').pack()
+
+        frame = Frame(window, width=350, height=390, bg='#fff')
+        frame.place(x=480, y=180)
+
+        heading = Label(frame, text="Register", fg="#57a1f8", bg="white", font=("Microdoft Yahei UI Light", 23, 'bold'))
+        heading.place(x=100, y=5)
+
+        def on_enter(e):
+            user.delete(0, 'end')
+
+        def on_leave(e):
+            if user.get() == '':
+                   user.insert(0, 'Username')
+
+        user = Entry(frame, fg='black', border=0, bg='white', font=("Microdoft Yahei UI Light", 11))
+        user.place(x=80, y=80)
+        user.insert(0, 'Username')
+        user.bind("<FocusIn>", on_enter)
+        user.bind("<FocusOut>", on_leave)
+
+        Frame(frame, width=295, height=2, bg='black').place(x=75, y=107)
+
+        ##################################################################
+        def on_enter(e):
+            password.delete(0, 'end')
+            password.config(show='*')
+
+        def on_leave(e):
+            if password.get() == '':
+                   password.insert(0, 'Password')
+
+        password = Entry(frame, fg='black', border=0, bg='white', font=("Microdoft Yahei UI Light", 11))
+        password.place(x=80, y=150)
+        password.insert(0, 'Password')
+        password.bind("<FocusIn>", on_enter)
+        password.bind("<FocusOut>", on_leave)
+
+        Frame(frame, width=295, height=2, bg='black').place(x=75, y=177)
+
+        ##############################################################################
+        def on_enter(e):
+            email.delete(0, 'end')
+
+        def on_leave(e):
+            if email.get() == '':
+                email.insert(0, 'Email')
+
+        email = Entry(frame, fg='black', border=0, bg='white', font=("Microdoft Yahei UI Light", 11))
+        email.place(x=80, y=220)
+        email.insert(0, 'Email')
+        email.bind("<FocusIn>", on_enter)
+        email.bind("<FocusOut>", on_leave)
+
+        Frame(frame, width=295, height=2, bg='black').place(x=75, y=247)
+
+        Button(frame, width=39, pady=7, text='Sign up', bg='#57a1f8', cursor="hand2", fg='white', border=0,
+               command=register_user).place(x=75, y=280)
+    def login():
+        window = Tk()
+        window.title("SignIn")
+        window.geometry("900x750+100+50")
+        window.configure(bg='#fff')
+        window.resizable(False, False)
+        window.img = PhotoImage(file="login.png", master=window)
+        Label(window, image=window.img, border=0, bg='white').place(x=50, y=200)
+
+        img1 = ImageTk.PhotoImage(file="LT.jpg", master=window)
+        Label(window, image=img1, border=0, bg='white').pack()
+
+        frame = Frame(window, width=350, height=390, bg='#fff')
+        frame.place(x=480, y=180)
+
+        heading = Label(frame, text="Login", fg="#57a1f8", bg="white", font=("Microdoft Yahei UI Light", 23, 'bold'))
+        heading.place(x=100, y=5)
+
+        def on_enter(e):
+            user_login.delete(0, 'end')
+
+        def on_leave(e):
+            if user_login.get() == '':
+                user_login.insert(0, 'Username')
+
+        user_login = Entry(frame, fg='black', border=0, bg='white', font=("Microdoft Yahei UI Light", 11))
+        user_login.place(x=80, y=80)
+        user_login.insert(0, 'Username')
+        user_login.bind("<FocusIn>", on_enter)
+        user_login.bind("<FocusOut>", on_leave)
+
+        Frame(frame, width=295, height=2, bg='black').place(x=75, y=107)
+
+    ##################################################################
+        def on_enter(e):
+            login_password.delete(0, 'end')
+            login_password.config(show='*')
+
+        def on_leave(e):
+            if login_password.get() == '':
+                login_password.insert(0, 'Password')
+
+        login_password = Entry(frame, fg='black', border=0, bg='white', font=("Microdoft Yahei UI Light", 11))
+        login_password.place(x=80, y=150)
+        login_password.insert(0, 'Password')
+        login_password.bind("<FocusIn>", on_enter)
+        login_password.bind("<FocusOut>", on_leave)
+
+        Frame(frame, width=295, height=2, bg='black').place(x=75, y=177)
+
+        Button(frame, width=39, pady=7, text='Sign In', bg='#57a1f8', cursor="hand2", fg='white', command=login_user,
+           border=0).place(x=75, y=207)
+
+        Button(frame, text="Forget Password?", cursor="hand2", bg="white", fg="#d77337", bd=0, font=("times new roman", 10),
+           command=forget_password).place(x=160, y=250)
+
+    def forget_password():
+        window = Tk()
+        window.title("Forget Password")
+        window.geometry("900x750+100+50")
+        window.configure(bg='#fff')
+        window.resizable(False, False)
+        window.img = PhotoImage(file="sign1.png", master=window)
+        Label(window, image=window.img, border=0, bg='white').place(x=50, y=80)
+
+        frame = Frame(window, width=350, height=390, bg='#fff')
+        frame.place(x=480, y=70)
+
+        heading = Label(frame, text="Change Password", fg="#57a1f8", bg="white",
+                        font=("Microdoft Yahei UI Light", 20, 'bold', 'italic'))
+        heading.place(x=90, y=5)
+
+        def on_enter(e):
+            email.delete(0, 'end')
+
+        def on_leave(e):
+            if email.get() == '':
+                email.insert(0, 'Email')
+
+        email = Entry(frame, fg='black', border=0, bg='white', font=("Microdoft Yahei UI Light", 11))
+        email.place(x=80, y=80)
+        email.insert(0, 'Email')
+        email.bind("<FocusIn>", on_enter)
+        email.bind("<FocusOut>", on_leave)
+
+        Frame(frame, width=295, height=2, bg='black').place(x=75, y=107)
+
+        ##################################################################
+        def on_enter(e):
+            New_password.delete(0, 'end')
+
+        def on_leave(e):
+            if New_password.get() == '':
+                New_password.insert(0, 'New Password')
+
+        New_password = Entry(frame, fg='black', border=0, bg='white', font=("Microdoft Yahei UI Light", 11))
+        New_password.place(x=80, y=150)
+        New_password.insert(0, 'New Password')
+        New_password.bind("<FocusIn>", on_enter)
+        New_password.bind("<FocusOut>", on_leave)
+
+        Frame(frame, width=295, height=2, bg='black').place(x=75, y=177)
+
+        Button(frame, width=39, pady=7, text='Reset Password', bg='#57a1f8', cursor="hand2", fg='white',
+               border=0).place(x=75, y=207)
+
+    def register_user():
+        mydb = mysql.connector.connect(host='localhost', port='3306', user='root', password='indranee123',
+                                       database='register_login')
+        mycursor = mydb.cursor()
+
+        username = user.get()
+        password = password.get()
+        email = email.get()
+
+        mycursor.execute("insert into register values(%s,%s,%s)", (username, password, email))
+        mydb.commit()
+
+        msg.showinfo("Registration details", "Registered successfully")
+
+    def login_user():
+        mydb = mysql.connector.connect(host='localhost', port='3306', user='root', password='indranee123',
+                                       database='register_login')
+        mycursor = mydb.cursor()
+
+        username1 = user_login.get()
+        password1 = login_password.get()
+
+        mycursor.execute("select * from register where username=%s and password=%s", (username1, password1))
+
+        c = 0
+        for i in mycursor:
+            c = c + 1
+
+        if c >= 1:
+            mycursor.execute("insert into login values(%s,%s)", (username1, password1))
+            mydb.commit()
+            mycursor.execute(second_page())
+
+        else:
+            msg.showinfo("login details", "Invalid credentials")
+
+    def forget_user():
+        mydb = mysql.connector.connect(host='localhost', port='3306', user='root', password='indranee123',
+                                       database='register_login')
+        mycursor = mydb.cursor()
+
+        username2 = email.get()
+        new_password =New_password.get()
+
+    def about():
+        about = Tk()
+        about.title("About")
+        about.geometry("900x750+100+50")
+
+    root = Tk()
+    root.title("Homepage")
+    root.geometry("900x750+100+50")
+    root.configure(bg='#fff')
+    root.resizable(False, False)
+    # self.img = PhotoImage(file="sign1.png", master= root)
+    root.bg = ImageTk.PhotoImage(file="ltts2.jpg")
+    Label(root, image=root.bg, border=0, bg='white').place(x=0, y=0)
+
+    title = Label(root, text="Welcome to L&T Technology Services Field test tool", bd='5', width="60",
+                  fg="#63666A", bg='white', font=("Arial", 18, 'italic', 'bold'))
+    title.pack()
+
+    About_button = Button(root, text="About", cursor='hand2', bd="3", height="2", width="10",
+                          font=("Microdoft Yahei UI Light", 11), command=about)
+    About_button.place(x=550, y=60)
+
+    register_button = Button(root, text="Register", cursor='hand2', bd="3", height="2", width="10",
+                             font=("Microdoft Yahei UI Light", 11), command=register)
+    register_button.place(x=670, y=60)
+
+    login_button = Button(root, text="Login", cursor='hand2', bd="3", height="2", width="10",
+                          font=("Microdoft Yahei UI Light", 11), command=login)
+    login_button.place(x=790, y=60)
+
+
+
+
 
 def second_page():
     def op1():
